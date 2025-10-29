@@ -148,7 +148,7 @@ export default function CafeClosingForm() {
       return;
     }
     const msg = buildWhatsAppMessage();
-    const href = `https://wa.me/${waNumber}?text=${msg}`;
+    const href = `https://wa.me/6281378351320?text=${msg}`;
     window.open(href, "_blank");
   }
 
