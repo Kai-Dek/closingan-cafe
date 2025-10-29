@@ -143,14 +143,11 @@ export default function CafeClosingForm() {
   }
 
   function handleSendWA() {
-    if (!waNumber) {
-      alert("Masukkan nomor WhatsApp penerima (format internasional tanpa +, contoh: 628123...) terlebih dahulu.");
-      return;
-    }
-    const msg = buildWhatsAppMessage();
-    const href = `https://wa.me/6281378351320?text=${msg}`;
-    window.open(href, "_blank");
-  }
+  const msg = buildWhatsAppMessage();
+  const href = `https://wa.me/6281378351320?text=${msg}`;
+  window.open(href, "_blank");
+}
+
 
   return (
     <div className="min-h-screen bg-gray-50 p-6 flex items-start justify-center">
@@ -236,14 +233,13 @@ export default function CafeClosingForm() {
         </div>
 
         <div className="mt-6">
-          <label className="block text-sm text-gray-600">Nomor WhatsApp penerima (contoh: 628123456789)</label>
-          <div className="flex gap-2 mt-2">
-            <input className="flex-1 p-2 border rounded" value={waNumber} onChange={(e) => setWaNumber(e.target.value.replace(/[^0-9]/g, ""))} placeholder="628..." />
-            <button onClick={handleSendWA} className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Kirim ke WhatsApp</button>
-          </div>
-          <p className="text-xs text-gray-500 mt-2">Tombol akan membuka WhatsApp web/Applikasi dengan ringkasan otomatis. Pastikan nomor benar.</p>
+          <button
+            onClick={handleSendWA}
+            className="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700"
+          >
+            Kirim ke WhatsApp
+          </button>
         </div>
-
         <div className="mt-6 text-sm text-gray-500">Catatan: Jika Anda ingin menghitung DK langsung dari jumlah penjualan (nilai rupiah per item), kita bisa menambah input harga per item. Saat ini komponen menghitung DK dari jumlah unit x potongan yang telah ditentukan (2500 untuk food, nilai berbeda pada additional).</div>
       </div>
     </div>
